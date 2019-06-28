@@ -1,0 +1,9 @@
+body {
+    @include var(font-size, fs-b);
+    @include var(font-family, ff-b);
+}
+
+h1 {
+    @include var(font-size, fs-h1);
+    @include var(font-family, ff-h);
+}

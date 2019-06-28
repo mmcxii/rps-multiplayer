@@ -1,0 +1,37 @@
+$root: (
+    clr-light: #eee,
+    clr-dark: #333,
+    clr-dark-2: #222,
+    clr-accent: red,
+    ff-h: serif,
+    ff-b: sans-serif,
+    fs-b: 1rem,
+    fs-h1: 2.5rem,
+    fs-h2: 1.5rem,
+    icon-size: 3rem,
+    icon-pic-size: 1.5rem,
+    spacing: 1rem,
+    spacing-2: 2rem,
+);
+
+$breakpoints: (
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+);
+
+:root {
+    @each $key, $val in $root {
+        --#{$key}: #{$val};
+    }
+
+    @include mq(bp(md)) {
+        --icon-size: 4rem;
+        --icon-pic-size: 2rem;
+    }
+
+    @include mq(bp(lg)) {
+        --fs-h1: 3rem;
+    }
+}

@@ -1,0 +1,25 @@
+.social {
+    display: flex;
+
+    &__link {
+        text-decoration: none;
+        text-align: center;
+        @include varPlusBef(margin, 0, spacing);
+    }
+
+    &__icon {
+        @include var(font-size, icon-pic-size);
+        @include var((width, height, line-height), icon-size);
+        @include var(background-color, clr-dark);
+        @include var(color, clr-light);
+        border-radius: 50%;
+        @include varPlusBef(border, 2px solid, clr-accent);
+        transition: ease-in-out 200ms;
+
+        &:hover,
+        &:active {
+            @include var(background-color, clr-dark-2);
+            transition: ease-in-out 200ms;
+        }
+    }
+}

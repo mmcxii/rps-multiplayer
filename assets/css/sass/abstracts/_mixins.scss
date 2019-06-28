@@ -1,0 +1,27 @@
+// Selects a breakpoint from breakpoints map
+@mixin mq($breakpoint) {
+    @media only screen and (min-width: $breakpoint) {
+        @content;
+    }
+}
+
+// Produces css custom properties with fallbacks
+@mixin var($props, $val) {
+    @each $key in $props {
+        #{$key}: map-get($root, $val);
+        #{$key}: var(--#{$val});
+    }
+}
+
+// Produces css custom properties with fallbacks, can also include css
+// CSS inserted before var
+@mixin varPlusBef($prop, $css, $val) {
+    #{$prop}: #{$css} map-get($root, $val);
+    #{$prop}: #{$css} var(--#{$val});
+}
+
+// CSS inserted after var
+@mixin varPlusAft($prop, $val, $css) {
+    #{$prop}: map-get($root, $val) #{$css};
+    #{$prop}: var(--#{$val}) #{$css};
+}

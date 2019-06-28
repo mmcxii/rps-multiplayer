@@ -1,0 +1,7 @@
+// Sets basis for flexible layout
+html,
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
