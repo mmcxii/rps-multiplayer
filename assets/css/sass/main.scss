@@ -8,6 +8,7 @@
 @import 'base/typography';
 
 /* layout */
+@import 'layout/grid';
 @import 'layout/utility';
 @import 'layout/header';
 @import 'layout/app';
@@ -16,3 +17,8 @@
 /* components */
 @import 'components/social';
 @import 'components/byline';
+@import 'components/rps';
+@import 'components/scoreboard';
+@import 'components/instructions';
+@import 'components/results';
+@import 'components/card';

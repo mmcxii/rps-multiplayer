@@ -13,6 +13,7 @@
   --icon-pic-size: 1.5rem;
   --spacing: 1rem;
   --spacing-2: 2rem;
+  --rounded: 5px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -41,6 +42,11 @@ body {
           flex-direction: column;
 }
 
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 body {
   font-size: 1rem;
   font-size: var(--fs-b);
@@ -56,6 +62,29 @@ h1 {
 }
 
 /* layout */
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+
+@media only screen and (min-width: 992px) {
+  .row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
 .container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -79,9 +108,13 @@ header .container {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 footer {
@@ -149,4 +182,120 @@ footer .container {
       -ms-flex-pack: center;
           justify-content: center;
   font-style: italic;
+}
+
+.rps {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+@media only screen and (min-width: 992px) {
+  .rps {
+    margin-right: 1rem;
+    margin-right: var(--spacing);
+  }
+}
+
+.rps__card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-width: 30%;
+  cursor: pointer;
+}
+
+.rps__card:hover .rps__icon {
+  color: #222;
+  color: var(--clr-dark-2);
+  -webkit-transition: ease-in-out 300ms;
+  transition: ease-in-out 300ms;
+}
+
+.rps__icon {
+  font-size: 3rem;
+  font-size: var(--icon-size);
+  color: #333;
+  color: var(--clr-dark);
+  cursor: pointer;
+  -webkit-transition: ease-in-out 300ms;
+  transition: ease-in-out 300ms;
+}
+
+.rps__label {
+  font-size: 1.5rem;
+  font-size: var(--fs-h2);
+  cursor: pointer;
+}
+
+#scoreboard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+
+#scoreboard table {
+  padding: 2rem;
+  padding: var(--spacing-2);
+}
+
+#scoreboard table th,
+#scoreboard table td {
+  color: #222;
+  color: var(--clr-dark-2);
+}
+
+@media only screen and (min-width: 992px) {
+  #scoreboard {
+    margin-left: 1rem;
+    margin-left: var(--spacing);
+  }
+}
+
+#player__list th:not(:first-child) {
+  border-bottom: 2px solid #333;
+  border-bottom: 2px solid var(--clr-dark);
+}
+
+#instructions {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+#results {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  text-transform: capitalize;
+}
+
+.card {
+  border: 2px solid #eee;
+  border: 2px solid var(--clr-light);
+  border-radius: 5px;
+  border-radius: var(--rounded);
+  margin: 1rem 0;
+  margin: var(--spacing) 0;
+  padding: 1rem;
+  padding: var(--spacing);
 }

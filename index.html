@@ -25,7 +25,62 @@
         </header>
         <main>
             <div class="container">
-                <div id="app">App Here</div>
+                <div id="app">
+                    <div class="row">
+                        <section class="card" id="instructions">
+                            Player One, make your selection.
+                        </section>
+                    </div>
+                    <div class="row">
+                        <section class="card rps" id="roshambo">
+                            <div class="card rps__card" id="rock" data-rps="r">
+                                <i class="rps__icon fas fa-hand-rock"></i>
+                                <h2 class="rps__label">Rock</h2>
+                            </div>
+                            <div class="card rps__card" id="paper" data-rps="p">
+                                <i class="rps__icon fas fa-hand-paper"></i>
+                                <h2 class="rps__label">Paper</h2>
+                            </div>
+                            <div class="card rps__card" id="scissors" data-rps="s">
+                                <i class="rps__icon fas fa-hand-scissors"></i>
+                                <h2 class="rps__label">Scissors</h2>
+                            </div>
+                        </section>
+                        <section class="card" id="scoreboard">
+                            <table>
+                                <tr id="player__list">
+                                    <th></th>
+                                    <th id="player--one">Player One</th>
+                                    <th id="player--two">Player Two</th>
+                                </tr>
+                                <tr>
+                                    <th>Wins</th>
+                                    <td id="wins--p1">0</td>
+                                    <td id="wins--p2">0</td>
+                                </tr>
+                                <tr>
+                                    <th>Losses</th>
+                                    <td id="losses-p1">0</td>
+                                    <td id="losses-p2">0</td>
+                                </tr>
+                                <tr>
+                                    <th>Ties</th>
+                                    <td id="ties" colspan="2">0</td>
+                                </tr>
+                            </table>
+                        </section>
+                    </div>
+                    <div class="row">
+                        <section class="card" id="results">
+                            Player One Wins!
+                        </section>
+                    </div>
+                    <div class="row">
+                        <section class="card" id="chat">
+                            Chat Window
+                        </section>
+                    </div>
+                </div>
             </div>
         </main>
         <footer>
@@ -41,6 +96,11 @@
                 </div>
             </div>
         </footer>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+             https://firebase.google.com/docs/web/setup#config-web-app -->
         <script src="assets/js/app.js"></script>
     </body>
 </html>

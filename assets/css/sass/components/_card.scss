@@ -1,0 +1,6 @@
+.card {
+    @include varPlusBef(border, 2px solid, clr-light);
+    @include var(border-radius, rounded);
+    @include varPlusAft(margin, spacing, 0);
+    @include var(padding, spacing);
+}

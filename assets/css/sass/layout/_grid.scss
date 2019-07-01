@@ -1,0 +1,10 @@
+.row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+
+    @include mq(bp(lg)) {
+        flex-direction: row;
+    }
+}
