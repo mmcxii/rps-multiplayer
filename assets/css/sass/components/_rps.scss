@@ -15,7 +15,8 @@
 
         cursor: pointer;
 
-        &:hover .rps__icon {
+        &:hover .rps__icon,
+        &:hover .rps__label {
             @include var(color, clr-dark-2);
             transition: ease-in-out 300ms;
         }

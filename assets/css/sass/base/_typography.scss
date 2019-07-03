@@ -1,9 +1,12 @@
 body {
     @include var(font-size, fs-b);
     @include var(font-family, ff-b);
+    @include var(background-color, clr-bg);
+    @include var(color, clr-light);
 }
 
 h1 {
     @include var(font-size, fs-h1);
     @include var(font-family, ff-h);
+    @include var(color, clr-dark-2);
 }

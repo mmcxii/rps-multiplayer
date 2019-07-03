@@ -1,11 +1,13 @@
 /* abstracts */
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap");
 :root {
-  --clr-light: #eee;
-  --clr-dark: #333;
-  --clr-dark-2: #222;
-  --clr-accent: red;
-  --ff-h: serif;
-  --ff-b: sans-serif;
+  --clr-light: #fffbfc;
+  --clr-dark: #93a3b1;
+  --clr-dark-2: #070707;
+  --clr-accent: #adf5ff;
+  --clr-bg: #617073;
+  --ff-h: Montserrat, sans-serif;
+  --ff-b: Roboto, sans-serif;
   --fs-b: 1rem;
   --fs-h1: 2.5rem;
   --fs-h2: 1.5rem;
@@ -50,15 +52,21 @@ body {
 body {
   font-size: 1rem;
   font-size: var(--fs-b);
-  font-family: sans-serif;
+  font-family: "Roboto", sans-serif;
   font-family: var(--ff-b);
+  background-color: #617073;
+  background-color: var(--clr-bg);
+  color: #fffbfc;
+  color: var(--clr-light);
 }
 
 h1 {
   font-size: 2.5rem;
   font-size: var(--fs-h1);
-  font-family: serif;
+  font-family: "Montserrat", sans-serif;
   font-family: var(--ff-h);
+  color: #070707;
+  color: var(--clr-dark-2);
 }
 
 /* layout */
@@ -152,19 +160,19 @@ footer .container {
   height: var(--icon-size);
   line-height: 3rem;
   line-height: var(--icon-size);
-  background-color: #333;
+  background-color: #93a3b1;
   background-color: var(--clr-dark);
-  color: #eee;
+  color: #fffbfc;
   color: var(--clr-light);
   border-radius: 50%;
-  border: 2px solid red;
+  border: 2px solid #adf5ff;
   border: 2px solid var(--clr-accent);
   -webkit-transition: ease-in-out 200ms;
   transition: ease-in-out 200ms;
 }
 
 .social__icon:hover, .social__icon:active {
-  background-color: #222;
+  background-color: #070707;
   background-color: var(--clr-dark-2);
   -webkit-transition: ease-in-out 200ms;
   transition: ease-in-out 200ms;
@@ -215,8 +223,9 @@ footer .container {
   cursor: pointer;
 }
 
-.rps__card:hover .rps__icon {
-  color: #222;
+.rps__card:hover .rps__icon,
+.rps__card:hover .rps__label {
+  color: #070707;
   color: var(--clr-dark-2);
   -webkit-transition: ease-in-out 300ms;
   transition: ease-in-out 300ms;
@@ -225,7 +234,7 @@ footer .container {
 .rps__icon {
   font-size: 3rem;
   font-size: var(--icon-size);
-  color: #333;
+  color: #93a3b1;
   color: var(--clr-dark);
   cursor: pointer;
   -webkit-transition: ease-in-out 300ms;
@@ -260,7 +269,11 @@ footer .container {
 
 #scoreboard table th,
 #scoreboard table td {
-  color: #222;
+  width: 33%;
+}
+
+#scoreboard table th {
+  color: #070707;
   color: var(--clr-dark-2);
 }
 
@@ -272,8 +285,8 @@ footer .container {
 }
 
 #player__list th:not(:first-child) {
-  border-bottom: 2px solid #333;
-  border-bottom: 2px solid var(--clr-dark);
+  border-bottom: 2px solid #adf5ff;
+  border-bottom: 2px solid var(--clr-accent);
 }
 
 #instructions {
@@ -290,7 +303,7 @@ footer .container {
 }
 
 .card {
-  border: 2px solid #eee;
+  border: 2px solid #fffbfc;
   border: 2px solid var(--clr-light);
   border-radius: 5px;
   border-radius: var(--rounded);
