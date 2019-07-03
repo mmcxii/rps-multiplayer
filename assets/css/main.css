@@ -245,6 +245,8 @@ footer .container {
   font-size: 1.5rem;
   font-size: var(--fs-h2);
   cursor: pointer;
+  -webkit-transition: ease-in-out 300ms;
+  transition: ease-in-out 300ms;
 }
 
 #scoreboard {
