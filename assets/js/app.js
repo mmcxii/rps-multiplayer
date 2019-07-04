@@ -24,32 +24,32 @@ const ties = 0;
 const colorWheel = [
     {
         white: {
-            allies: ['blue', 'green'],
-            enemies: ['black', 'red'],
+            allies: ['black', 'green'],
+            enemies: ['blue', 'red'],
         },
     },
     {
         blue: {
-            allies: ['white', 'black'],
-            enemies: ['red', 'green'],
+            allies: ['red', 'white'],
+            enemies: ['black', 'green'],
         },
     },
     {
         black: {
-            allies: ['blue', 'red'],
-            enemies: ['white', 'green'],
+            allies: ['green', 'blue'],
+            enemies: ['red', 'white'],
         },
     },
     {
         red: {
-            allies: ['black', 'green'],
-            enemies: ['white', 'blue'],
+            allies: ['white', 'black'],
+            enemies: ['green', 'blue'],
         },
     },
     {
         green: {
-            allies: ['white', 'red'],
-            enemies: ['blue', 'black'],
+            allies: ['blue', 'red'],
+            enemies: ['white', 'black'],
         },
     },
 ];
@@ -146,6 +146,49 @@ function randomAccentColor() {
     root.style.setProperty('--clr-accent-2', accent2);
 }
 
+function showRules() {
+    // Reveals rules card
+    document.querySelector('#rules__card').classList.remove('hidden');
+
+    // Removes slower transition speed after entry
+    setTimeout(() => {
+        document.querySelector('#rules__card').classList.remove('slow');
+    }, 1000);
+
+    // Toggles button to hide rules
+    document.querySelector('#rules__btn').addEventListener('click', () => {
+        hideRules();
+    });
+}
+
+function hideRules() {
+    // Adds slow transition speed
+    document.querySelector('#rules__card').classList.add('slow');
+
+    // Hides card
+    document.querySelector('#rules__card').classList.add('hidden');
+
+    // Toggles button to show rules
+    document.querySelector('#rules__btn').addEventListener('click', () => {
+        showRules();
+    });
+}
+
+function showRulesBtn() {
+    // Reveals rules button
+    document.querySelector('#rules__btn').classList.remove('hidden');
+
+    // Removes slower transition speed after entry
+    setTimeout(() => {
+        document.querySelector('#rules__btn').classList.remove('slow');
+    }, 700);
+
+    // Toggles button to show rules
+    document.querySelector('#rules__btn').addEventListener('click', () => {
+        showRules();
+    });
+}
+
 // Called before document loaded intentionally
 randomAccentColor();
 
@@ -156,4 +199,6 @@ document.addEventListener('DOMContentLoaded', () => {
             setHovers(key);
         }
     });
+
+    showRulesBtn();
 });

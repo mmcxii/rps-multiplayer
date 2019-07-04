@@ -21,7 +21,7 @@
         <header>
             <div class="container">
                 <h1 id="title">Ro Sham Bo</h1>
-                <h2 id="title--sub">The Gathering</h2>
+                <h2 id="title__sub">The Gathering</h2>
             </div>
         </header>
 
@@ -30,6 +30,21 @@
         <main>
             <div class="container">
                 <div id="app">
+                    <div class="row" id="rules">
+                        <section class="card hidden slow" id="rules__card">
+                            When you hover over a color, two others are highlighted in red; those
+                            are your color's enemies. The other two colors are faded and highlighted
+                            in blue; those are your color's allies. If your opponent chooses one of
+                            your color's enemies, you get a point, if your opponent chooses one of
+                            your color's allies, they get a point. If both players choose the same
+                            color, the game results in a tie.
+                            <br /><br />
+                            *Disclaimer: These are
+                            <em>not</em> the actual MTG color pairs. The system had to be changed to
+                            fit the rules of 5 way RPS.
+                        </section>
+                        <button class="btn hidden slow" id="rules__btn">Rules</button>
+                    </div>
                     <div class="row">
                         <section class="card" id="instructions">
                             Player One, make your selection.

@@ -4,6 +4,7 @@ body {
     @include var(background-color, clr-bg-2);
     @include var(color, clr-dark);
     font-weight: bolder;
+    overflow: hidden;
 }
 
 h1,

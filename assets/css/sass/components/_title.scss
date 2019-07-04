@@ -1,6 +1,7 @@
 #title {
     @include var(color, clr-u-bg);
     margin-bottom: 0;
+    text-shadow: -2px 0 var(--clr-b), 0 2px var(--clr-b), 2px 0 var(--clr-b), 0 -2px var(--clr-b);
 
     &::first-letter {
         margin-top: 0.0001rem;
@@ -8,7 +9,10 @@
         font-size: calc(var(--fs-h1) * 1.75);
     }
 
-    &--sub {
+    &__sub {
+        text-shadow: -1px 0 var(--clr-b), 0 1px var(--clr-b), 1px 0 var(--clr-b),
+            0 -1px var(--clr-b);
+        letter-spacing: 1px;
         @include var(color, clr-w);
         position: absolute;
         top: 50%;

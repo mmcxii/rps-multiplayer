@@ -1,0 +1,17 @@
+.btn {
+    @include var(background-color, clr-accent-2);
+    @include varPlusBef(border, 2px solid, clr-accent);
+    padding: 8px 16px;
+    font-weight: bolder;
+    cursor: pointer;
+    transition: ease-in-out 200ms;
+    @include var(border-radius, rounded);
+
+    &:hover,
+    &:active {
+        @include var(background-color, clr-accent);
+        @include var(color, clr-accent-2);
+        @include var(border-color, clr-accent-2);
+        transition: ease-in-out 200ms;
+    }
+}

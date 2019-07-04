@@ -4,4 +4,7 @@
     justify-content: center;
 
     font-style: italic;
+    @include var(color, clr-w);
+    letter-spacing: 1px;
+    text-shadow: -1px 0 var(--clr-b), 0 1px var(--clr-b), 1px 0 var(--clr-b), 0 -1px var(--clr-b);
 }

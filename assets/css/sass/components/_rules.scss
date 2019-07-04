@@ -1,0 +1,26 @@
+#rules {
+    justify-content: flex-end;
+    display: flex;
+
+    &__btn {
+        margin-top: auto;
+        @include var(margin-bottom, spacing);
+        height: 38px;
+
+        &.hidden {
+            transform: translateX(200%);
+        }
+    }
+
+    &__card {
+        @include var(margin-right, spacing);
+
+        &.hidden {
+            transform: translateX(-125%);
+        }
+    }
+
+    .slow {
+        transition: ease-in-out 1000ms;
+    }
+}
