@@ -1,0 +1,11 @@
+#card-back {
+    position: absolute;
+    @include var(background-color, clr-bg);
+    @include varPlusBef(border, 0.25vw solid, clr-u-bg);
+    height: 100vh;
+    width: 45vw;
+    z-index: -1;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 100%;
+}

@@ -1,0 +1,86 @@
+.mana {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+
+    @include mq(bp(lg)) {
+        @include var(margin-right, spacing);
+    }
+
+    &__field {
+        margin: 0 auto;
+    }
+
+    &__button {
+        font-family: sans-serif; // Centers icons vertically, don't know why it's needed but it works
+        border-radius: 50%;
+        margin: 0.25rem;
+        @include var(font-size, icon-pic-size);
+        @include var((width, height, line-height), icon-size);
+        cursor: pointer;
+        border: none;
+        transition: ease-in-out 300ms;
+
+        &#white {
+            @include var(background-color, clr-w-bg);
+            @include var(color, clr-w);
+            @include varPlusBef(border, 2px solid, clr-w);
+
+            &:hover {
+                @include varPlusBef(box-shadow, 0 0 10px, clr-w);
+            }
+        }
+
+        &#blue {
+            @include var(background-color, clr-u-bg);
+            @include var(color, clr-u);
+            @include varPlusBef(border, 2px solid, clr-u);
+
+            &:hover {
+                @include varPlusBef(box-shadow, 0 0 10px, clr-u);
+            }
+        }
+
+        &#black {
+            @include var(background-color, clr-b-bg);
+            @include var(color, clr-b);
+            @include varPlusBef(border, 2px solid, clr-b);
+
+            &:hover {
+                @include varPlusBef(box-shadow, 0 0 10px, clr-b);
+            }
+        }
+
+        &#red {
+            @include var(background-color, clr-r-bg);
+            @include var(color, clr-r);
+            @include varPlusBef(border, 2px solid, clr-r);
+
+            &:hover {
+                @include varPlusBef(box-shadow, 0 0 10px, clr-r);
+            }
+        }
+
+        &#green {
+            @include var(background-color, clr-g-bg);
+            @include var(color, clr-g);
+            @include varPlusBef(border, 2px solid, clr-g);
+
+            &:hover {
+                @include varPlusBef(box-shadow, 0 0 10px, clr-g);
+            }
+        }
+    }
+}
+
+.enemy {
+    box-shadow: 0 0 10px red;
+    transition: ease-in-out 500ms;
+}
+
+.ally {
+    opacity: 0.5;
+    box-shadow: 0 0 10px lightblue;
+    transition: ease-in-out 500ms;
+}

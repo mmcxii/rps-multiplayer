@@ -1,0 +1,17 @@
+#title {
+    @include var(color, clr-u-bg);
+    margin-bottom: 0;
+
+    &::first-letter {
+        margin-top: 0.0001rem;
+        float: left;
+        font-size: calc(var(--fs-h1) * 1.75);
+    }
+
+    &--sub {
+        @include var(color, clr-w);
+        position: absolute;
+        top: 50%;
+        left: 47%;
+    }
+}

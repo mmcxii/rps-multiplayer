@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto&display=swap');
-$ff-h: 'Montserrat', sans-serif;
-$ff-b: 'Roboto', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Sorts+Mill+Goudy|Roboto&display=swap');
+$ff-h: 'Sorts Mill Goudy', serif;
+$ff-b: 'Sorts Mill Goudy', serif;
 
 $breakpoints: (
     sm: 576px,
@@ -10,11 +10,22 @@ $breakpoints: (
 );
 
 $root: (
+    clr-w: rgb(249, 250, 244),
+    clr-w-bg: rgb(248, 231, 185),
+    clr-u: rgb(14, 104, 171),
+    clr-u-bg: rgb(179, 206, 234),
+    clr-b: rgb(21, 11, 0),
+    clr-b-bg: rgb(166, 159, 157),
+    clr-r: rgb(211, 32, 42),
+    clr-r-bg: rgb(235, 159, 130),
+    clr-g: rgb(0, 115, 62),
+    clr-g-bg: rgb(196, 211, 202),
     clr-light: #fffbfc,
-    clr-dark: #93a3b1,
-    clr-dark-2: #070707,
-    clr-accent: #adf5ff,
-    clr-bg: #617073,
+    clr-dark: #000,
+    clr-accent: rgb(249, 250, 244),
+    clr-accent-2: rgb(248, 231, 185),
+    clr-bg: rgb(138, 86, 39),
+    clr-bg-2: rgb(69, 53, 25),
     ff-h: $ff-h,
     ff-b: $ff-b,
     fs-b: 1rem,

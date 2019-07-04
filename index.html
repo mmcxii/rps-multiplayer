@@ -21,8 +21,12 @@
         <header>
             <div class="container">
                 <h1 id="title">Ro Sham Bo</h1>
+                <h2 id="title--sub">The Gathering</h2>
             </div>
         </header>
+
+        <div id="card-back"></div>
+
         <main>
             <div class="container">
                 <div id="app">
@@ -32,18 +36,23 @@
                         </section>
                     </div>
                     <div class="row">
-                        <section class="card rps" id="roshambo">
-                            <div class="card rps__card" id="rock" data-rps="r">
-                                <i class="rps__icon fas fa-hand-rock"></i>
-                                <h2 class="rps__label">Rock</h2>
-                            </div>
-                            <div class="card rps__card" id="paper" data-rps="p">
-                                <i class="rps__icon fas fa-hand-paper"></i>
-                                <h2 class="rps__label">Paper</h2>
-                            </div>
-                            <div class="card rps__card" id="scissors" data-rps="s">
-                                <i class="rps__icon fas fa-hand-scissors"></i>
-                                <h2 class="rps__label">Scissors</h2>
+                        <section class="card mana" id="mana-symbols">
+                            <div class="mana__field">
+                                <button class="mana__button" data-mana="w" id="white">
+                                    <i class="mana__symbol fas fa-sun"></i>
+                                </button>
+                                <button class="mana__button" data-mana="u" id="blue">
+                                    <i class="mana__symbol fas fa-tint"></i>
+                                </button>
+                                <button class="mana__button" data-mana="b" id="black">
+                                    <i class="mana__symbol fas fa-skull"></i>
+                                </button>
+                                <button class="mana__button" data-mana="r" id="red">
+                                    <i class="mana__symbol fas fa-fire"></i>
+                                </button>
+                                <button class="mana__button" data-mana="g" id="green">
+                                    <i class="mana__symbol fas fa-tree-alt"></i>
+                                </button>
                             </div>
                         </section>
                         <section class="card" id="scoreboard">
@@ -54,12 +63,12 @@
                                     <th id="player--two">Player Two</th>
                                 </tr>
                                 <tr>
-                                    <th>Wins</th>
+                                    <th>Victories</th>
                                     <td id="wins--p1">0</td>
                                     <td id="wins--p2">0</td>
                                 </tr>
                                 <tr>
-                                    <th>Losses</th>
+                                    <th>Defeats</th>
                                     <td id="losses--p1">0</td>
                                     <td id="losses--p2">0</td>
                                 </tr>
@@ -83,6 +92,7 @@
                 </div>
             </div>
         </main>
+
         <footer>
             <div class="container">
                 <div class="byline">Nich Secord &copy;2019</div>
@@ -96,11 +106,9 @@
                 </div>
             </div>
         </footer>
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
-        <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
 
-        <!-- TODO: Add SDKs for Firebase products that you want to use
-             https://firebase.google.com/docs/web/setup#config-web-app -->
+        <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
         <script src="assets/js/app.js"></script>
     </body>
 </html>

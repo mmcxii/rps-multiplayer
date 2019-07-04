@@ -10,15 +10,17 @@
     &__icon {
         @include var(font-size, icon-pic-size);
         @include var((width, height, line-height), icon-size);
-        @include var(background-color, clr-dark);
-        @include var(color, clr-light);
+        @include var(background-color, clr-accent-2);
+        @include var(color, clr-accent);
         border-radius: 50%;
         @include varPlusBef(border, 2px solid, clr-accent);
         transition: ease-in-out 200ms;
 
         &:hover,
         &:active {
-            @include var(background-color, clr-dark-2);
+            @include var(background-color, clr-accent);
+            @include var(color, clr-accent-2);
+            @include var(border-color, clr-accent-2);
             transition: ease-in-out 200ms;
         }
     }

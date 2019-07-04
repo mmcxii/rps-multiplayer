@@ -15,10 +15,12 @@
 @import 'layout/footer';
 
 /* components */
+@import 'components/card-back';
 @import 'components/social';
 @import 'components/byline';
-@import 'components/rps';
+@import 'components/mana';
 @import 'components/scoreboard';
 @import 'components/instructions';
 @import 'components/results';
 @import 'components/card';
+@import 'components/title';
