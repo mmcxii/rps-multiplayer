@@ -263,7 +263,11 @@ footer .container {
   margin: 0 auto;
 }
 
-.mana__button {
+.mana__symbol {
+  pointer-events: none;
+}
+
+.mana__btn {
   font-family: sans-serif;
   border-radius: 50%;
   margin: 0.25rem;
@@ -281,7 +285,7 @@ footer .container {
   transition: ease-in-out 300ms;
 }
 
-.mana__button#white {
+.mana__btn#white {
   background-color: #f8e7b9;
   background-color: var(--clr-w-bg);
   color: #f9faf4;
@@ -290,14 +294,14 @@ footer .container {
   border: 2px solid var(--clr-w);
 }
 
-.mana__button#white:hover {
+.mana__btn#white:hover {
   -webkit-box-shadow: 0 0 10px #f9faf4;
           box-shadow: 0 0 10px #f9faf4;
   -webkit-box-shadow: 0 0 10px var(--clr-w);
           box-shadow: 0 0 10px var(--clr-w);
 }
 
-.mana__button#blue {
+.mana__btn#blue {
   background-color: #b3ceea;
   background-color: var(--clr-u-bg);
   color: #0e68ab;
@@ -306,14 +310,14 @@ footer .container {
   border: 2px solid var(--clr-u);
 }
 
-.mana__button#blue:hover {
+.mana__btn#blue:hover {
   -webkit-box-shadow: 0 0 10px #0e68ab;
           box-shadow: 0 0 10px #0e68ab;
   -webkit-box-shadow: 0 0 10px var(--clr-u);
           box-shadow: 0 0 10px var(--clr-u);
 }
 
-.mana__button#black {
+.mana__btn#black {
   background-color: #a69f9d;
   background-color: var(--clr-b-bg);
   color: #150b00;
@@ -322,14 +326,14 @@ footer .container {
   border: 2px solid var(--clr-b);
 }
 
-.mana__button#black:hover {
+.mana__btn#black:hover {
   -webkit-box-shadow: 0 0 10px #150b00;
           box-shadow: 0 0 10px #150b00;
   -webkit-box-shadow: 0 0 10px var(--clr-b);
           box-shadow: 0 0 10px var(--clr-b);
 }
 
-.mana__button#red {
+.mana__btn#red {
   background-color: #eb9f82;
   background-color: var(--clr-r-bg);
   color: #d3202a;
@@ -338,14 +342,14 @@ footer .container {
   border: 2px solid var(--clr-r);
 }
 
-.mana__button#red:hover {
+.mana__btn#red:hover {
   -webkit-box-shadow: 0 0 10px #d3202a;
           box-shadow: 0 0 10px #d3202a;
   -webkit-box-shadow: 0 0 10px var(--clr-r);
           box-shadow: 0 0 10px var(--clr-r);
 }
 
-.mana__button#green {
+.mana__btn#green {
   background-color: #c4d3ca;
   background-color: var(--clr-g-bg);
   color: #00733e;
@@ -354,7 +358,7 @@ footer .container {
   border: 2px solid var(--clr-g);
 }
 
-.mana__button#green:hover {
+.mana__btn#green:hover {
   -webkit-box-shadow: 0 0 10px #00733e;
           box-shadow: 0 0 10px #00733e;
   -webkit-box-shadow: 0 0 10px var(--clr-g);
