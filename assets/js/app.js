@@ -63,6 +63,7 @@ const resRef = db.ref('game/result');
 
 /* Functionality */
 
+// Monitor current users
 usersRef.on('value', (snap) => {
     // Check for first player
     if (snap.child('playerOne').exists()) {
@@ -70,53 +71,74 @@ usersRef.on('value', (snap) => {
         playerOne = snap.val().playerOne;
         playerOneName = playerOne.name;
 
+        // Display player one name
         document.querySelector(`#player--one`).textContent = playerOneName;
     } else {
+        // Empty player one
         playerOne = null;
         playerOneName = '';
+
+        // Display waiting message
         document.querySelector(`#player--one`).textContent = 'Waiting for connection.';
     }
 
     // Check for second player
     if (snap.child('playerTwo').exists()) {
-        // Set player one
+        // Set player two
         playerTwo = snap.val().playerTwo;
         playerTwoName = playerTwo.name;
 
+        // Display player two name
         document.querySelector(`#player--two`).textContent = playerTwoName;
     } else {
+        // Empty player two
         playerTwo = null;
         playerTwoName = '';
+
+        // Display waiting message
         document.querySelector(`#player--two`).textContent = 'Waiting for connection.';
     }
 
+    // When both players are present
     if (playerOne && playerTwo) {
+        // Inform player one it is their turn
         document.querySelector(
             '#instructions'
         ).textContent = `${playerOneName}, please make your selection.`;
 
+        // Set the scoreboard
         setBoard();
     }
 
+    // When both players are disconnected remove references to game phase and ties
     if (!playerOne && !playerTwo) {
         phaseRef.remove();
         tiesRef.remove();
     }
 });
 
+// Monitor game phase
 phaseRef.on('value', (snap) => {
+    // If it's player one's turn
     if (snap.val() === 1) {
+        // Set the local variable to match the database
         currentPhase = 1;
 
+        // Confirm both players are present
         if (playerOne && playerTwo) {
+            // Inform player one it is their turn
             document.querySelector(
                 '#instructions'
             ).textContent = `${playerOneName}, please make your selection.`;
         }
+        // If it is player two's turn
     } else if (snap.val() === 2) {
+        // Set the local variable to match the database
         currentPhase = 2;
 
+        // Confirm both players are present
         if (playerOne && playerTwo) {
+            // Inform player two it is their turn
             document.querySelector(
                 '#instructions'
             ).textContent = `${playerTwoName}, please make your selection.`;
@@ -124,20 +146,21 @@ phaseRef.on('value', (snap) => {
     }
 });
 
-// Listens for ties to update player one's page
+// Monitor ties to update player one's page
 tiesRef.on('value', (snap) => {
     ties = snap.val();
 
     document.querySelector('#ties').textContent = ties;
 });
 
-// Listens for results to update player one's page
+// Monitor results to update player one's page
 resRef.on('value', (snap) => {
     res = snap.val();
 
     document.querySelector('#results').textContent = res;
 });
 
+// Process game results, incriment database variables, and display results
 function processGame() {
     /* Player one chooses white */
     if (playerOne.choice === 'w') {
@@ -297,14 +320,18 @@ function processGame() {
 
     // Update the result with produced string
     resRef.set(res);
+
+    // Set the scoreboard with new scores
     setBoard();
 
+    // Set turn to player one
     currentPhase = 1;
     phaseRef.set(currentPhase);
 }
 
 /* Supporting Functions */
 
+// Create a new user
 function newUser(name) {
     // Return an object to be stored in firebase
     return {
@@ -314,87 +341,124 @@ function newUser(name) {
     };
 }
 
+// Empty and reset the scoreboard with current values
 function setBoard() {
+    // Empty the scoreboard
     document.querySelector('#wins--p1').textContent = '';
     document.querySelector('#wins--p2').textContent = '';
     document.querySelector('#losses--p1').textContent = '';
     document.querySelector('#losses--p2').textContent = '';
     document.querySelector('#ties').textContent = '';
 
+    // Set wins
     document.querySelector('#wins--p1').textContent = playerOne.wins;
     document.querySelector('#wins--p2').textContent = playerTwo.wins;
 
+    // Set losses based on opponent's wins
     document.querySelector('#losses--p1').textContent = playerTwo.wins;
     document.querySelector('#losses--p2').textContent = playerOne.wins;
 
+    // Display ties
     document.querySelector('#ties').textContent = ties;
 
+    // Display result message
     document.querySelector('#results').textContent = res;
 }
 
 // /* On Click Functions */
 
+// Select elements
 const nameBtn = document.querySelector('#name__btn');
 const nameField = document.querySelector('#name__field');
+
+// Listen for clicks on the submission button
 nameBtn.addEventListener('click', (e) => {
+    // Prevent the default event
     e.preventDefault();
 
+    // If the field is not empty and both players are not connected
     if (nameField.value.trim() !== '' && !(playerOne && playerTwo)) {
+        // If there is no player one
         if (playerOne === null) {
+            // Set local player name
             localPlayerName = nameField.value.trim();
 
+            // Create player one with local name
             playerOne = newUser(localPlayerName);
 
+            // Set the phase to 0 (pregame)
             phaseRef.set(0);
 
+            // Store local player in database as player one
             usersRef.child('playerOne').set(playerOne);
 
+            // When the player leaves the game remove them from the database
             db.ref('game/users/playerOne')
                 .onDisconnect()
                 .remove();
+
+            // If player one is present but player two is not
         } else if (playerOne !== null && playerTwo === null) {
+            // Set local player name
             localPlayerName = nameField.value.trim();
 
+            // Create player two with local name
             playerTwo = newUser(localPlayerName);
 
+            // Store local player in database as player two
             usersRef.child('playerTwo').set(playerTwo);
 
+            // Pass the turn to player one
             phaseRef.set(1);
+
+            // Set ties to be 0
             tiesRef.set(0);
 
+            // When the player leaves the game remove them from the database
             db.ref('game/users/playerTwo')
                 .onDisconnect()
                 .remove();
         }
     }
 
+    // Empty the search field
     nameField.value = '';
+
+    // Hide the entry form
     document.querySelector('#name__form').style.display = 'none';
 });
 
+// Select the player's chosen color
 function chooseColor(mana) {
-    // If both players are connected, you are player one, and it's your turn
+    // If both players are connected, local player is player one, and it's player one's turn
     if (playerOne && playerTwo && localPlayerName === playerOneName && currentPhase === 1) {
+        // Store the player's choice
         playerOneChoice = mana;
 
+        // Store the choice in the database
         usersRef.child('playerOne/choice').set(playerOneChoice);
 
+        // Pass the turn to player two
         currentPhase = 2;
         phaseRef.set(currentPhase);
     }
 
-    // If both players are connected, you are player two, and it's your turn
+    // If both players are connected, local player is player two, and it's player two's turn
     if (playerOne && playerTwo && localPlayerName === playerTwoName && currentPhase === 2) {
+        // Store the player's choice
         playerTwoChoice = mana;
 
+        // Store the choice in the databas
         usersRef.child('playerTwo/choice').set(playerTwoChoice);
 
+        // Process the results of the game
         processGame();
     }
 }
 
 /* Non Game Functions */
 
+// Set the hover styles based on the button being hovered
 function setHovers(id) {
     // Find a color in the wheel by provided id
     const color = colorWheel[id];
@@ -437,6 +501,7 @@ function setHovers(id) {
     });
 }
 
+// Display the rules card
 function showRules() {
     // Reveals rules card
     document.querySelector('#rules__card').classList.remove('hidden');
@@ -452,6 +517,7 @@ function showRules() {
     });
 }
 
+// Hide the rules card
 function hideRules() {
     // Adds slow transition speed
     document.querySelector('#rules__card').classList.add('slow');
@@ -465,6 +531,7 @@ function hideRules() {
     });
 }
 
+// Display the rules button
 function showRulesBtn() {
     // Reveals rules button
     document.querySelector('#rules__btn').classList.remove('hidden');
@@ -480,6 +547,7 @@ function showRulesBtn() {
     });
 }
 
+// Select a random color for the display
 function randomAccentColor() {
     // Select the root element
     const root = document.documentElement;
@@ -503,8 +571,12 @@ function randomAccentColor() {
 // Called before document loaded intentionally
 randomAccentColor();
 
+// When the document finishes loading
 document.addEventListener('DOMContentLoaded', () => {
+    // Slide in the rules button
     showRulesBtn();
+
+    // Set the default message
     resRef.set(res);
 
     // Set Hovers
@@ -512,13 +584,19 @@ document.addEventListener('DOMContentLoaded', () => {
         setHovers(color);
     }
 
+    // Select the mana field
     const mana = document.querySelector('.mana__field');
+
+    // Listen for clicks on mana buttons
     mana.addEventListener('click', (e) => {
+        // Ensure only buttons are clicked
         if (!e.target.matches('.mana__btn')) {
             return;
         } else {
+            // Select the color of the button clicked
             const color = e.target.dataset.mana;
 
+            // Select the color
             chooseColor(color);
         }
     });
