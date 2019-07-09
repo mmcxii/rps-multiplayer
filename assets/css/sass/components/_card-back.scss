@@ -2,11 +2,19 @@
     position: absolute;
     @include var(background-color, clr-bg);
     @include varPlusBef(border, 0.25vw solid, clr-u-bg);
-    height: calc(100vh - 2rem);
-    width: 45vw;
+    height: calc(100vh - 3rem);
+    width: 75vw;
     z-index: -1;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 100%;
     @include varPlusAft(margin, spacing, 0);
+
+    @include mq(bp(lg)) {
+        width: 45vw;
+    }
+
+    @include mq(bp(xl)) {
+        width: 40vw;
+    }
 }

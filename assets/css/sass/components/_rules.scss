@@ -17,6 +17,12 @@
 
         &.hidden {
             transform: translateX(-125%);
+
+            display: none;
+
+            @include mq(bp(lg)) {
+                display: block;
+            }
         }
     }
 

@@ -1,0 +1,17 @@
+#name {
+    &__form {
+        @include var(margin-bottom, spacing);
+    }
+
+    &__field {
+        @include var(background-color, clr-accent-2);
+        @include varPlusBef(border, 2px solid, clr-accent);
+        @include var(border-radius, rounded);
+        @include var(margin-right, spacing);
+        padding: 8px 16px;
+
+        &:focus {
+            @include var(background-color, clr-accent-2);
+        }
+    }
+}

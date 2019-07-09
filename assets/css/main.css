@@ -165,8 +165,8 @@ footer .container {
   background-color: var(--clr-bg);
   border: 0.25vw solid #b3ceea;
   border: 0.25vw solid var(--clr-u-bg);
-  height: calc(100vh - 2rem);
-  width: 45vw;
+  height: calc(100vh - 3rem);
+  width: 75vw;
   z-index: -1;
   left: 50%;
   -webkit-transform: translateX(-50%);
@@ -174,6 +174,18 @@ footer .container {
   border-radius: 100%;
   margin: 1rem 0;
   margin: var(--spacing) 0;
+}
+
+@media only screen and (min-width: 992px) {
+  #card-back {
+    width: 45vw;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  #card-back {
+    width: 40vw;
+  }
 }
 
 .social {
@@ -525,9 +537,38 @@ footer .container {
 #rules__card.hidden {
   -webkit-transform: translateX(-125%);
           transform: translateX(-125%);
+  display: none;
+}
+
+@media only screen and (min-width: 992px) {
+  #rules__card.hidden {
+    display: block;
+  }
 }
 
 #rules .slow {
   -webkit-transition: ease-in-out 1000ms;
   transition: ease-in-out 1000ms;
+}
+
+#name__form {
+  margin-bottom: 1rem;
+  margin-bottom: var(--spacing);
+}
+
+#name__field {
+  background-color: #f8e7b9;
+  background-color: var(--clr-accent-2);
+  border: 2px solid #f9faf4;
+  border: 2px solid var(--clr-accent);
+  border-radius: 5px;
+  border-radius: var(--rounded);
+  margin-right: 1rem;
+  margin-right: var(--spacing);
+  padding: 8px 16px;
+}
+
+#name__field:focus {
+  background-color: #f8e7b9;
+  background-color: var(--clr-accent-2);
 }
