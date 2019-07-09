@@ -55,7 +55,7 @@ firebase.initializeApp(firebaseConfig);
 // Reference the database
 const db = firebase.database();
 
-// Reference to database location
+// References to database locations
 const usersRef = db.ref('game/users');
 const phaseRef = db.ref('game/phase');
 const tiesRef = db.ref('game/ties');
