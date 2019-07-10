@@ -79,7 +79,8 @@ usersRef.on('value', (snap) => {
         playerOneName = '';
 
         // Display waiting message
-        document.querySelector(`#player--one`).textContent = 'Waiting for connection.';
+        document.querySelector(`#player--one`).innerHTML =
+            'Waiting... <i class="fas fa-spinner fa-spin"></i>';
     }
 
     // Check for second player
@@ -96,15 +97,14 @@ usersRef.on('value', (snap) => {
         playerTwoName = '';
 
         // Display waiting message
-        document.querySelector(`#player--two`).textContent = 'Waiting for connection.';
+        document.querySelector(`#player--two`).innerHTML =
+            'Waiting... <i class="fas fa-spinner fa-spin"></i>';
     }
 
     // When both players are present
     if (playerOne && playerTwo) {
         // Inform player one it is their turn
-        document.querySelector(
-            '#instructions'
-        ).textContent = `${playerOneName}, please make your selection.`;
+        document.querySelector('#instructions').textContent = `${playerOneName}, please make your selection.`;
 
         // Set the scoreboard
         setBoard();
@@ -178,9 +178,7 @@ function processGame() {
 
             usersRef.child('playerOne/wins').set(playerOne.wins);
 
-            res = `White beats ${playerTwo.choice === 'u' ? 'blue' : 'red'}, ${
-                playerOne.name
-            } wins!`;
+            res = `White beats ${playerTwo.choice === 'u' ? 'blue' : 'red'}, ${playerOne.name} wins!`;
 
             // Player two chooses black or green
         } else {
@@ -188,9 +186,7 @@ function processGame() {
 
             usersRef.child('playerTwo/wins').set(playerTwo.wins);
 
-            res = `${playerTwo.choice === 'b' ? 'black' : 'green'} beats white, ${
-                playerTwo.name
-            } wins!`;
+            res = `${playerTwo.choice === 'b' ? 'black' : 'green'} beats white, ${playerTwo.name} wins!`;
         }
 
         /* Player one chooses blue */
@@ -209,9 +205,7 @@ function processGame() {
 
             usersRef.child('playerOne/wins').set(playerOne.wins);
 
-            res = `Blue beats ${playerTwo.choice === 'b' ? 'black' : 'green'}, ${
-                playerOne.name
-            } wins!`;
+            res = `Blue beats ${playerTwo.choice === 'b' ? 'black' : 'green'}, ${playerOne.name} wins!`;
 
             // Player two chooses white or red
         } else {
@@ -219,9 +213,7 @@ function processGame() {
 
             usersRef.child('playerTwo/wins').set(playerTwo.wins);
 
-            res = `${playerTwo.choice === 'w' ? 'white' : 'red'} beats blue, ${
-                playerTwo.name
-            } wins!`;
+            res = `${playerTwo.choice === 'w' ? 'white' : 'red'} beats blue, ${playerTwo.name} wins!`;
         }
 
         /* Player one chooses black */
@@ -240,9 +232,7 @@ function processGame() {
 
             usersRef.child('playerOne/wins').set(playerOne.wins);
 
-            res = `Black beats ${playerTwo.choice === 'w' ? 'white' : 'red'}, ${
-                playerOne.name
-            } wins!`;
+            res = `Black beats ${playerTwo.choice === 'w' ? 'white' : 'red'}, ${playerOne.name} wins!`;
 
             // Player two chooses blue or green
         } else {
@@ -250,9 +240,7 @@ function processGame() {
 
             usersRef.child('playerTwo/wins').set(playerTwo.wins);
 
-            res = `${playerTwo.choice === 'u' ? 'blue' : 'green'} beats black, ${
-                playerTwo.name
-            } wins!`;
+            res = `${playerTwo.choice === 'u' ? 'blue' : 'green'} beats black, ${playerTwo.name} wins!`;
         }
 
         /* Player one chooses red */
@@ -271,9 +259,7 @@ function processGame() {
 
             usersRef.child('playerOne/wins').set(playerOne.wins);
 
-            res = `Red beats ${playerTwo.choice === 'u' ? 'blue' : 'green'}, ${
-                playerOne.name
-            } wins!`;
+            res = `Red beats ${playerTwo.choice === 'u' ? 'blue' : 'green'}, ${playerOne.name} wins!`;
 
             // Player two chooses white or black
         } else {
@@ -281,9 +267,7 @@ function processGame() {
 
             usersRef.child('playerTwo/wins').set(playerTwo.wins);
 
-            res = `${playerTwo.choice === 'w' ? 'white' : 'black'} beats red, ${
-                playerTwo.name
-            } wins!`;
+            res = `${playerTwo.choice === 'w' ? 'white' : 'black'} beats red, ${playerTwo.name} wins!`;
         }
 
         /* Player one chooses green */
@@ -302,9 +286,7 @@ function processGame() {
 
             usersRef.child('playerOne/wins').set(playerOne.wins);
 
-            res = `Green beats ${playerTwo.choice === 'w' ? 'white' : 'black'}, ${
-                playerOne.name
-            } wins!`;
+            res = `Green beats ${playerTwo.choice === 'w' ? 'white' : 'black'}, ${playerOne.name} wins!`;
 
             // Player two chooses blue or red
         } else {
@@ -312,9 +294,7 @@ function processGame() {
 
             usersRef.child('playerTwo/wins').set(playerTwo.wins);
 
-            res = `${playerTwo.choice === 'u' ? 'blue' : 'red'} beats green, ${
-                playerTwo.name
-            } wins!`;
+            res = `${playerTwo.choice === 'u' ? 'blue' : 'red'} beats green, ${playerTwo.name} wins!`;
         }
     }
 
